@@ -10,11 +10,11 @@ int main(int argc, char *argv[]) {
     Mat img1 = imread(argv[1]);
     Mat img2 = imread(argv[2]);
 
-    // calc the difference
+    // using OpenCV to calculate the diff
     Mat diff;
     absdiff(img1, img2, diff);
 
-    // Get the mask if difference greater than th
+    // Get the mask if difference greater than threshold th
     int th = 100;  // 0
     Mat mask(img1.size(), CV_8UC1);
     for(int j=0; j<diff.rows; ++j) {
@@ -31,10 +31,6 @@ int main(int argc, char *argv[]) {
     Mat image;
     bitwise_and(img1, img2, image, mask);
 
-    // display
-    //resize(image, image, Size(image.cols/4, image.rows/4)); // to half size or even smaller
-    //namedWindow( "Display frame", WINDOW_AUTOSIZE);
-    //imshow("res", image);
     imwrite("resultat_diff.png", image);
     waitKey();
     return 0;
