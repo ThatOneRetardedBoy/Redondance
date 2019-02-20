@@ -5,10 +5,10 @@
 #include <iostream>
 using namespace std;
 using namespace cv;
-int main() {
+int main(int argc, char *argv[]) {
 
-    Mat img1 = imread("image1.png");
-    Mat img2 = imread("image2.png");
+    Mat img1 = imread(argv[1]);
+    Mat img2 = imread(argv[2]);
 
     // calc the difference
     Mat diff;
