@@ -1,11 +1,7 @@
-#include <opencv2/core/core.hpp>
-#include <opencv2/imgproc/imgproc.hpp>
-#include <opencv2/highgui/highgui.hpp>
-//#include <opencv2/opencv.hpp>
-#include <iostream>
+#include "redondance.h"
 using namespace std;
 using namespace cv;
-int main(int argc, char *argv[]) {
+void redondance(int argc, char *argv[]) {
 
     Mat img1 = imread(argv[1]);
     Mat img2 = imread(argv[2]);
@@ -33,6 +29,9 @@ int main(int argc, char *argv[]) {
 
     imwrite("resultat_diff.png", image);
     waitKey();
-    return 0;
 }
 
+int main(int argc, char *argv[]) {
+    redondance(argc, argv);
+    return 0;
+}
